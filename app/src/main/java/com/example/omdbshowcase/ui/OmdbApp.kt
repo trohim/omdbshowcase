@@ -7,12 +7,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.data.utils.NetworkMonitor
 import com.example.details.DetailsViewModel
+import com.example.omdbshowcase.R
 import com.example.search.navigation.SEARCH_ROUTE
 import com.example.search.navigation.detailsScreen
 import com.example.search.navigation.navigateToDetails
@@ -28,7 +30,7 @@ fun OmdbApp(networkMonitor: NetworkMonitor) {
         if (isConnected.value) {
             OmdbNavHost()
         } else {
-            Text(text = "No internet connection", modifier = Modifier.align(Alignment.Center))
+            Text(text = stringResource(R.string.no_internet_connection), modifier = Modifier.align(Alignment.Center))
         }
     }
 
